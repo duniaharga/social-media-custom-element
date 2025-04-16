@@ -8,7 +8,6 @@ This custom element adds social media sharing functionality to your YOOtheme Pro
  -  Whatsapp
  -  Telegram
  -  E-mail
- -  
 * A custom Soical media  field to copy the current page URL (show image bleow):
 
   ![image](https://github.com/user-attachments/assets/4c32e4c1-02b3-40af-8391-0d6274f72c79)
