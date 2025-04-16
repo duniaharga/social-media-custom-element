@@ -1,0 +1,117 @@
+{
+    "@import": "./element.php",
+    "name": "yooessentials_social_sharing_item_custom",
+    "title": "Network",
+    "width": 500,
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "defaults": {
+        "link_target": "_blank",
+        "link_target_width": "",
+        "link_target_height": ""
+    },
+    "fields": {
+        "link": {
+            "label": "Social Network",
+            "type": "select",
+            "default": "twitter",
+            "options": {
+                "Twitter": "twitter",
+                "Facebook": "facebook",
+                "WhatsApp": "whatsapp",
+                "LinkedIn": "linkedin",
+                "Telegram": "telegram",
+                "E-mail": "mail",
+                "Pinterest": "pinterest",
+                "Copylink": "copylink",
+                "Custom": "custom"
+            }
+        },
+        "message": {
+            "label": "Copy Message",
+            "description": "This message will be shown when the link is copied.",
+            "type": "text",
+            "default": "link copied! ",
+            "show": "link == 'copylink'"
+          },
+          
+        "custom_link": {
+            "label": "Link",
+            "attrs": {
+                "placeholder": "http://mysharer.com/?u=%s"
+            },
+            "description": "Set a custom share link where <code>%s</code> is a reference to the current site url.",
+            "show": "link == 'custom'"
+        },
+        "link_target": {
+            "label": "Target",
+            "description": "Set the target window for the sharing links to open.",
+            "type": "select",
+            "options": {
+                "New Window": "_blank",
+                "Same Window": "_self",
+                "PopUp Window": "popup"
+            }
+        },
+        "link_target_width": {
+            "label": "Width",
+            "attrs": {
+                "placeholder": 600
+            }
+        },
+        "link_target_height": {
+            "label": "Height",
+            "attrs": {
+                "placeholder": 600
+            }
+        },
+        "title": {
+            "label": "Title",
+            "description": "An optional title for the link."
+        },
+        "icon": {
+            "label": "Icon",
+            "description": "Instead of using a custom image, you can click on the pencil to pick an icon from the icon library.",
+            "type": "icon",
+            "source": true,
+            "show": "link == 'custom'"
+        },
+        "status": "${builder.status}",
+        "id": "${builder.id}",
+        "class": "${builder.cls}",
+        "attributes": "${builder.attrs}"
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Content",
+                   
+                    "fields": [
+                        "link",
+                        "custom_link",
+                        "link_target",
+                        {
+                            "description": "The target window specifications.",
+                            "name": "_target",
+                            "type": "grid",
+                            "width": "1-2",
+                            "fields": [
+                                "link_target_width",
+                                "link_target_height"
+                            ],
+                            "show": "link_target === 'popup'"
+                        },
+                        "title",
+                        "icon",
+                        "message"
+                    ]
+                },
+                "${builder.advanced}"
+            ]
+        }
+    }
+}
