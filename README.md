@@ -16,13 +16,13 @@ This custom element adds social media sharing functionality to your YOOtheme Pro
 
 * A custom toast notification when the link is copied:
   
+![image](https://github.com/user-attachments/assets/dd607b58-e32e-418c-b80e-bc804cee70b4)
 
 
 
+ Method Overview:
 
-1- Method Overview:
-
-- element.json
+1- element.json
   {
     "@import": "./element.php",
     "name": "yooessentials_social_sharing_item_custom",
